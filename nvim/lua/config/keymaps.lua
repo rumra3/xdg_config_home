@@ -6,6 +6,16 @@ vim.keymap.set("n", "k", "gk")
 
 vim.keymap.set({"n", "i", "v"}, "<C-s>", ":update<CR>")
 
+-- terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<M-[>", "<Esc>")
+vim.keymap.set("t", "<M-Esc>", "<Esc>")
+
+vim.keymap.set("t", "<M-h>", "<C-\\><C-n><cmd>TmuxNavigateLeft<cr>")
+vim.keymap.set("t", "<M-j>", "<C-\\><C-n><cmd>TmuxNavigateDown<cr>")
+vim.keymap.set("t", "<M-k>", "<C-\\><C-n><cmd>TmuxNavigateUp<cr>")
+vim.keymap.set("t", "<M-l>", "<C-\\><C-n><cmd>TmuxNavigateRight<cr>")
+
 -- harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")

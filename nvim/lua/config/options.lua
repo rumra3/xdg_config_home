@@ -25,4 +25,6 @@ vim.opt.scrolloff = 5
 
 vim.opt.signcolumn = "yes"
 
+vim.opt.splitright = true
+
 vim.cmd.colorscheme("gruber-darker")

@@ -5,6 +5,7 @@ local config = function(_, opts)
 		filetypes = { 'haskell', 'lhaskell', 'cabal' },
 	}
 	lsp.metals.setup{}
+	lsp.rust_analyzer.setup{}
 
 	local luasnip = require "luasnip"
 	-- nvim-cmp setup

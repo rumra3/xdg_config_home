@@ -6,6 +6,7 @@ return {
         lazy = true,
         opt = true
     },
-    config = true
+    config = true,
+	auto_close = true,
 }
 }
