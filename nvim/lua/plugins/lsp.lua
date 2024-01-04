@@ -1,6 +1,9 @@
 local config = function(_, opts)
 	local lsp = require "lspconfig"
 	lsp.clangd.setup{}
+	lsp.hls.setup{
+		filetypes = { 'haskell', 'lhaskell', 'cabal' },
+	}
 
 	local luasnip = require "luasnip"
 	-- nvim-cmp setup
@@ -14,7 +17,7 @@ local config = function(_, opts)
 		mapping = cmp.mapping.preset.insert({
 			['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 			['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-			['<C-z>'] = cmp.mapping.confirm({ select = true }),
+			['<C-y>'] = cmp.mapping.confirm({ select = true }),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-Space>"] = cmp.mapping.complete(),

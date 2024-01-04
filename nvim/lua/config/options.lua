@@ -25,4 +25,4 @@ vim.opt.scrolloff = 5
 
 vim.opt.signcolumn = "yes"
 
-vim.cmd.colorscheme("decay")
+vim.cmd.colorscheme("gruber-darker")
