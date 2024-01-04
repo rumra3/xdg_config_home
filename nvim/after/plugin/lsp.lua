@@ -42,18 +42,31 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<CR>"] = vim.NIL,
 })
 
-cmp.setup({
-	window = {
-		documentation = cmp.config.window.bordered(),
-	},
-	sources = {
-		{ name = 'nvim_lsp' },
-		{ name = 'vsnip' },
-	},
-})
-
 lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
+	snippet = {
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+	},
+	mapping = cmp_mappings,
+	formatting = {
+		format = function(entry, vim_item)
+			local function trim(text)
+				local max = 40
+				if text and text:len() > max then
+					text = text:sub(1,max) .. "..."
+				end
+				return text
+			end
+
+			vim_item.abbr = trim(vim_item.abbr)
+			return vim_item
+		end,
+	},
+	sources = cmp.config.sources({
+		{ name = 'nvim_lsp', keyword_length = 3 },
+		{ name = 'vsnip' },
+	}),
 })
 
 lsp.set_preferences({
