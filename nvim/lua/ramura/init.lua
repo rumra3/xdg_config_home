@@ -29,15 +29,3 @@ vim.opt.scrolloff = 5
 vim.opt.signcolumn = "yes"
 
 vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
-
-function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
-
-function map_i(lhs, rhs, opts)
-	map('i', lhs, rhs, opts)
-end

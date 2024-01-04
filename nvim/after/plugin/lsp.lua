@@ -99,7 +99,19 @@ function on_attach(client)
 	print("aaaaAAAAA")
 end
 
-require('lspconfig').rust_analyzer.setup({
+local lspconf = require('lspconfig')
+
+lspconf.lua_ls.setup({
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = {'vim'},
+			},
+		},
+	},
+})
+
+lspconf.rust_analyzer.setup({
 	on_attach = on_attach,
 	settings = {
 		["rust-analyzer"] = {
@@ -132,5 +144,5 @@ require('lspconfig').rust_analyzer.setup({
 lsp.setup()
 
 vim.diagnostic.config({
-	virtual_text = false
+	virtual_text = true
 })
