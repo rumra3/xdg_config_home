@@ -15,6 +15,10 @@ return {
 				"json",
 				"markdown",
 				"go",
+				"haskell",
+			},
+			indent = {
+				enable = false
 			},
 		}
 	},

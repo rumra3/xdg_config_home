@@ -37,9 +37,9 @@ require("lazy").setup({
 })
 
 local modules = { 
+	"config.plugin_configs",
 	"config.options", 
 	"config.keymaps", 
-	"config.plugin_configs",
 }
 
 for _, mod in ipairs(modules) do

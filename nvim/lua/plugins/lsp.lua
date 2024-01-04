@@ -4,6 +4,7 @@ local config = function(_, opts)
 	lsp.hls.setup{
 		filetypes = { 'haskell', 'lhaskell', 'cabal' },
 	}
+	lsp.metals.setup{}
 
 	local luasnip = require "luasnip"
 	-- nvim-cmp setup
@@ -89,6 +90,7 @@ return {
 			autoformat = true,
 			servers = {
 				clangd = {},
+				metals = {},
 			},
 			setup = {},
 		},

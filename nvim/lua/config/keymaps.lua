@@ -4,6 +4,8 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
 
+vim.keymap.set({"n", "i", "v"}, "<C-s>", ":update<CR>")
+
 -- harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
