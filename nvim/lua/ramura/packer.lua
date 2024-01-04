@@ -9,12 +9,12 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({
-		'mhartington/oceanic-next',
-		config = function()
-			vim.cmd('colorscheme OceanicNext')
-		end
-	})
+---	use({
+---		'mildewchan/takodachi.vim',
+---		config = function()
+---			vim.cmd('colorscheme takodachi')
+---		end
+---	})
 
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')

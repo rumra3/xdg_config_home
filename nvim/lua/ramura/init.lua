@@ -29,3 +29,5 @@ vim.opt.scrolloff = 5
 vim.opt.signcolumn = "yes"
 
 vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
+
+vim.cmd('colorscheme takodachi')
