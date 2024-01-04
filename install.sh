@@ -6,3 +6,5 @@ for dir in * ; do
 		sudo ln -s $PWD/$dir $HOME/.config/$dir
 	fi
 done
+
+sudo ln -s $PWD/.bashrc $HOME/.bashrc
