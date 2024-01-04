@@ -5,7 +5,8 @@ lsp.preset("recommended")
 lsp.ensure_installed({
 	'clangd',
     'rust_analyzer',
-    'lua_ls'
+    'lua_ls',
+    'zls'
 })
 
 local luasnip = require('luasnip')
