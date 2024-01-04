@@ -25,8 +25,20 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-z>'] = cmp.mapping.confirm({ select = true }),
 	["<C-Space>"] = cmp.mapping.complete(),
-	["<Tab>"] = vim.NIL,
-	["<S-Tab>"] = vim.NIL,
+	["<Tab>"] = cmp.mapping(function(fallback)
+		if luasnip.expand_or_jumpable() then
+			luasnip.expand_or_jump()
+		else
+			fallback()
+		end
+	end, {"i", "s"}),
+	["<S-Tab>"] = cmp.mapping(function(fallback)
+		if luasnip.jumpable(-1) then
+			luasnip.jump(-1)
+		else
+			fallback()
+		end
+	end, {"i", "s"}),
 	["<CR>"] = vim.NIL,
 })
 
