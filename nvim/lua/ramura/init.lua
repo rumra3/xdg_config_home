@@ -10,7 +10,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = false
 
 vim.opt.list = true
-vim.opt.listchars = "tab:| ▸,trail:_,eol:¬,multispace:_-"
+vim.opt.listchars = "tab:|  ,trail:_,eol:¬,multispace:_   "
 
 vim.opt.smartindent = false
 vim.opt.cindent = true
@@ -41,16 +41,3 @@ end
 function map_i(lhs, rhs, opts)
 	map('i', lhs, rhs, opts)
 end
-
---[[
-map_i('"', '""<left>')
----map_i("'", "''<left>")
-map_i('(', '()<left>')
-map_i('[', '[]<left>')
-map_i('{', '{}<left>')
-map_i('(<CR>', '(<CR>)<ESC>O<TAB>')
-map_i('[<CR>', '[<CR>]<ESC>O<TAB>')
-map_i('{<CR>', '{<CR>}<ESC>O<TAB>')
-map_i('{;<CR>', '{<CR>};<ESC>O<TAB>')
-]]--
-
