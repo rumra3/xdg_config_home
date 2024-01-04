@@ -8,9 +8,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = false
-
-vim.opt.list = true
-vim.opt.listchars = "tab:| ▸,trail:_,eol:¬,multispace:_-"
+vim.op.listchars.tab = "¬"
+vim.op.listchars.eol = "▸"
 
 vim.opt.smartindent = false
 vim.opt.cindent = true
@@ -31,15 +30,15 @@ vim.opt.signcolumn = "yes"
 vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true })
 
 function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+    local options = { noremap = true }
+    if opts then
+        options = vim.tbl_extend("force", options, opts)
+    end
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 function map_i(lhs, rhs, opts)
-	map('i', lhs, rhs, opts)
+    map('i', lhs, rhs, opts)
 end
 
 --[[
