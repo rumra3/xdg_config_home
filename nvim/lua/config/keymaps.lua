@@ -57,7 +57,7 @@ vim.keymap.set('n', '<leader>ps', function()
 end)
 
 -- tree
-vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", {}) -- open/close
+vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", {}) -- open/close
 vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", {}) -- refresh
 vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {}) -- search file
 
