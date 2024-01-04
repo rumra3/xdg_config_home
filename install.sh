@@ -8,3 +8,4 @@ for dir in * ; do
 done
 
 sudo ln -s $PWD/.bashrc $HOME/.bashrc
+sudo ln -s $PWD/.gitconfig $HOME/.gitconfig
