@@ -73,8 +73,20 @@ vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", {}) -- open/close
 vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", {}) -- refresh
 vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {}) -- search file
 
--- spider
-vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+-- neowords
+
+local neowords = require("neowords")
+local p = neowords.pattern_presets
+
+local hops = neowords.get_word_hops(
+  p.snake_case,
+  p.camel_case,
+  p.upper_case,
+  p.number,
+  p.hex_color
+)
+
+vim.keymap.set({ "n", "x", "o" }, "w", hops.forward_start)
+vim.keymap.set({ "n", "x", "o" }, "e", hops.forward_end)
+vim.keymap.set({ "n", "x", "o" }, "b", hops.backward_start)
+vim.keymap.set({ "n", "x", "o" }, "ge", hops.backward_end)
