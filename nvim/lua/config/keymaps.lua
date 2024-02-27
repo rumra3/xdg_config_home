@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<Space>", "<NOP>")
 
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
@@ -86,7 +87,15 @@ local hops = neowords.get_word_hops(
   p.hex_color
 )
 
-vim.keymap.set({ "n", "x", "o" }, "w", hops.forward_start)
-vim.keymap.set({ "n", "x", "o" }, "e", hops.forward_end)
-vim.keymap.set({ "n", "x", "o" }, "b", hops.backward_start)
-vim.keymap.set({ "n", "x", "o" }, "ge", hops.backward_end)
+local function then_center(op)
+  return function()
+    op()
+    vim.cmd("norm! zz")
+  end
+end
+
+
+vim.keymap.set({ "n", "x", "o" }, "w", then_center(hops.forward_start))
+vim.keymap.set({ "n", "x", "o" }, "e", then_center(hops.forward_end))
+vim.keymap.set({ "n", "x", "o" }, "b", then_center(hops.backward_start))
+vim.keymap.set({ "n", "x", "o" }, "ge", then_center(hops.backward_end))
