@@ -16,15 +16,22 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = false
 
-vim.opt.scrolloff = 5
+vim.opt.scrolloff = 8
 
 vim.opt.signcolumn = "yes"
 
 vim.opt.splitright = true
 
 vim.cmd.colorscheme("gruber-darker")
+
+vim.api.nvim_create_autocmd({"BufWritePre"}, {
+	pattern = "[\\]",
+	command = "try | echoerr 'Forbidden file name: \\' | endtry",
+})
+
+vim.opt.guicursor = "n-v-c-i:block"

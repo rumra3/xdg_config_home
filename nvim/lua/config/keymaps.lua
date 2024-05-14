@@ -4,6 +4,9 @@ vim.keymap.set("n", "<Space>", "<NOP>")
 
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set("n", "G", "Gzz")
 
 vim.keymap.set({"n", "i", "v"}, "<C-s>", ":update<CR>")
 
@@ -87,15 +90,17 @@ local hops = neowords.get_word_hops(
   p.hex_color
 )
 
-local function then_center(op)
-  return function()
-    op()
-    vim.cmd("norm! zz")
-  end
-end
+-- nvim-surround
 
-
-vim.keymap.set({ "n", "x", "o" }, "w", then_center(hops.forward_start))
-vim.keymap.set({ "n", "x", "o" }, "e", then_center(hops.forward_end))
-vim.keymap.set({ "n", "x", "o" }, "b", then_center(hops.backward_start))
-vim.keymap.set({ "n", "x", "o" }, "ge", then_center(hops.backward_end))
+require('nvim-surround').setup({
+	keymaps = {
+		normal          = 'gz',
+		normal_cur      = 'gZ',
+		normal_line     = 'gzgz',
+		normal_cur_line = 'gZgZ',
+		visual          = 'gz',
+		visual_line     = 'gZ',
+		delete          = 'gzd',
+		change          = 'gzc',
+	}
+})

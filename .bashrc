@@ -40,3 +40,8 @@ export VISUAL='nvim'
 
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+blue="\e[1:34m"
+close="\e[m"
+
+export PS1="\u@\h:\[\e[1;34m\]\W \$\[\e[m\] "
