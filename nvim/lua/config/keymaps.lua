@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ov", vim.cmd.Ex)
 vim.keymap.set("n", "<Space>", "<NOP>")
 
 vim.keymap.set("n", "j", "gj")
@@ -9,6 +9,12 @@ vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("n", "G", "Gzz")
 
 vim.keymap.set({"n", "i", "v"}, "<C-s>", ":update<CR>")
+
+-- copipe
+vim.keymap.set({"v", "n"}, "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>Y", '"+yg_')
+vim.keymap.set({"v", "n"}, "<leader>p", '"+p')
+vim.keymap.set({"v", "n"}, "<leader>P", '"+P')
 
 -- terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
@@ -68,7 +74,7 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>ps', function()
+vim.keymap.set('n', '<leader>gr', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 

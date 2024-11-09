@@ -4,10 +4,10 @@ vim.opt.relativenumber = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 vim.opt.list = true
-vim.opt.listchars = "tab:|  ,trail:_,eol:¬,multispace:_   "
+vim.opt.listchars = "tab:> ,trail:·,multispace:·,nbsp:~,leadmultispace:|   "
 
 vim.opt.smartindent = false
 vim.opt.cindent = true
