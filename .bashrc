@@ -45,3 +45,8 @@ blue="\e[1:34m"
 close="\e[m"
 
 export PS1="\u@\h:\[\e[1;34m\]\W \$\[\e[m\] "
+
+export Documents="$HOME/Resources/Documents"
+export Projects="$HOME/Projects"
+export Areas="$HOME/Areas"
+export Archive="$HOME/Archive"
