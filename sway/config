@@ -20,7 +20,7 @@ set $menu wmenu-run
 
 set $bg "/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png"
 
-exec fcitx5
+exec_always fcitx5
 
 ### Output configuration
 #
