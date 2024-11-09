@@ -1,0 +1,3 @@
+clamshell mode
+hide windows
+working audio indicators
