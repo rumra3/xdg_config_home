@@ -18,12 +18,12 @@ grep 'BAT') |\
 egrep "state|percentage" |\
 awk '{print $2}')
 
-audio_volume=$(amixer -M get Master |\
-awk '/Mono.+/ {print $6=="[off]" ?\
-$4" 🔇": \
-$4" 🔉"}' |\
-tr -d [])
+audio_str=$(amixer -M get Master |\
+    awk '/^ *Front Left.+/ {left_val=$4; left_per=$5} \
+    /^ *Front Right.+/ {right_val=$4; right_per=$5} \
+    END {print left_val==right_val ? left_per : left_per"/"right_per}' |\
+    tr -d [])
 
 # Emojis and characters for the status bar
-# 💎 💻 💡 🔌 ⚡ 📁 \|
-echo $uptime_formatted ↑ $linux_version 🐧 $audio_volume $battery_percentage 🔋 $date_formatted
+# 💎 💻 💡 🔌 🔋 📁 \|
+echo $uptime_formatted ↑ $linux_version 🐧 $audio_str 🔉 $battery_percentage ⚡ $date_formatted
