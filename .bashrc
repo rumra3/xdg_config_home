@@ -17,10 +17,6 @@ _set_liveuser_PS1() {
 _set_liveuser_PS1
 unset -f _set_liveuser_PS1
 
-alias ls='ls --color=auto'
-alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
-alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
-
 [[ "$(whoami)" = "root" ]] && return
 
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100          # limits recursive functions, see 'man bash'
@@ -32,22 +28,11 @@ bind '"\e[B":history-search-forward'
 
 . "$HOME/.cargo/env"
 
-alias vim='nvim'
-alias tmux='tmux -u'
-
-export EDITOR='nvim'
-export VISUAL='nvim'
-
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 blue="\e[1:34m"
 close="\e[m"
 
 #export PS1="\u@\h:\[\e[1;34m\]\W \$\[\e[m\] "
 export PS1="\u@\h:\[\e[38;5;75m\]\W \$\[\e[m\] "
 
-export Documents="$HOME/Resources/Documents"
-export Projects="$HOME/Projects"
-export Areas="$HOME/Areas"
-export Archive="$HOME/Archive"
+source $HOME/.env
+source $HOME/.aliases
